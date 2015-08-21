@@ -1,0 +1,44 @@
+{
+  "name": "composer/tools",
+  "description": "ZF2 ddattee Tools",
+  "type": "library",
+  "keywords": [
+    "zf2"
+  ],
+  "homepage": "http://www.ddattee.fr/",
+  "license": "Apache 2.0",
+  "require": {
+    "php": ">=5.5",
+    "composer/libs": "dev-master",
+    "neilime/zf2-assets-bundle": "3.*@stable"
+  },
+  "authors": [
+    {
+      "name": "David Dattee",
+      "email": "david.dattee@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Tools\\": "src"
+    },
+    "classmap": [
+      "src/Tools/Module.php"
+    ]
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.zendframework.com/"
+    },
+    {
+      "type": "composer",
+      "url": "http://git.ddattee.fr/"
+    }
+  ],
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.x-dev"
+    }
+  }
+}
