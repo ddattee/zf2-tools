@@ -1,5 +1,5 @@
 {
-  "name": "composer/tools",
+  "name": "ddattee/tools",
   "description": "ZF2 ddattee Tools",
   "type": "library",
   "keywords": [
@@ -9,7 +9,7 @@
   "license": "Apache 2.0",
   "require": {
     "php": ">=5.5",
-    "composer/libs": "dev-master",
+    "ddattee/libs": "dev-master",
     "neilime/zf2-assets-bundle": "3.*@stable"
   },
   "authors": [
