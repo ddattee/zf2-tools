@@ -12,9 +12,9 @@ namespace Tools\Controller;
 class IndexController extends AbstractController
 {
 
-	public function indexAction()
-	{
-		return array();
-	}
+    public function indexAction()
+    {
+        return array();
+    }
 
 }
