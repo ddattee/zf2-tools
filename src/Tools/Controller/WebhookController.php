@@ -21,6 +21,16 @@ class WebhookController extends AbstractController
 {
 
     /**
+     * Index action
+     *
+     * @return array
+     */
+    public function indexAction()
+    {
+        return array();
+    }
+
+    /**
      * Update current repository
      *
      * @return ViewModel
