@@ -30,17 +30,17 @@ class CachesController extends AbstractController
         $empty = false;
         $msg = '';
         if ($this->getRequest()->isPost()) {
-            $indexCache = (int)$this->getRequest()->getPost('index');
-            if (!is_null($indexCache) && isset($caches[(int)$indexCache])) {
-                $cache = $caches[(int)$indexCache];
+            $indexCache = (int) $this->getRequest()->getPost('index');
+            if (!is_null($indexCache) && isset($caches[(int) $indexCache])) {
+                $cache = $caches[(int) $indexCache];
                 try {
                     if (is_dir($cache['path'])) {
-                        $size_before = $size_before = Dir::dirSize($cache['path']);
+                        $sizeBefore = $sizeBefore = Dir::dirSize($cache['path']);
                         $empty = $this->loadCacheStorage($cache)->flush();
                     } else {
                         $msg = 'Le dossier à nettoyé n\'existe pas';
                     }
-                    $size_after = Dir::dirSize($cache['path']);
+                    $sizeAfter = Dir::dirSize($cache['path']);
                 } catch (\Exception $e) {
                     $msg = $e->getMessage();
                 }
@@ -48,12 +48,14 @@ class CachesController extends AbstractController
         }
         $viewModel = new ViewModel();
         $viewModel
-            ->setVariables(array(
-                'result' => $empty,
-                'folder' => realpath($cache['path']),
-                'spared' => number_format(($size_before - $size_after) / 1000, 1, ',', ' '),
-                'msg' => $msg
-            ))
+            ->setVariables(
+                array(
+                    'result' => $empty,
+                    'folder' => realpath($cache['path']),
+                    'spared' => number_format(($sizeBefore - $sizeAfter) / 1000, 1, ',', ' '),
+                    'msg' => $msg
+                )
+            )
             ->setTerminal(true);
         return $viewModel;
     }
@@ -61,43 +63,47 @@ class CachesController extends AbstractController
     public function cleanAction()
     {
         $caches = $this->getServiceLocator()->get('config')['cache_manager']['caches'];
-        $indexCache = (int)$this->getRequest()->getparam('id', null);
+        $indexCache = (int) $this->getRequest()->getparam('id', null);
         $clean = false;
 
-        if (!is_null($indexCache) && isset($caches[(int)$indexCache])) {
-            $cache = $caches[(int)$indexCache];
-            $size_before = $size_before = Dir::dirSize($cache['path']);
+        if (!is_null($indexCache) && isset($caches[(int) $indexCache])) {
+            $cache = $caches[(int) $indexCache];
+            $sizeBefore = $sizeBefore = Dir::dirSize($cache['path']);
             $clean = $this->loadCacheStorage($cache)->clearExpired();
-            $size_after = Dir::dirSize($cache['path']);
+            $sizeAfter = Dir::dirSize($cache['path']);
         }
 
         $viewModel = new ViewModel();
         $viewModel
-            ->setVariables(array(
-                'result' => $clean,
-                'folder' => realpath($cache['path']),
-                'spared' => number_format(($size_before - $size_after) / 1000, 2, ',', ' ')
-            ))
+            ->setVariables(
+                array(
+                    'result' => $clean,
+                    'folder' => realpath($cache['path']),
+                    'spared' => number_format(($sizeBefore - $sizeAfter) / 1000, 2, ',', ' ')
+                )
+            )
             ->setTerminal(true);
         return $viewModel;
     }
 
     private function loadCacheStorage($cache)
     {
-        $cacheStorage = StorageFactory::factory(array(
-            'adapter' => array(
-                'name' => $cache['type'],
-                'options' => array(
-                    'cache_dir' => realpath($cache['path']),
-                    'ttl' => 1
+        $cacheStorage = StorageFactory::factory(
+            array(
+                'adapter' => array(
+                    'name' => $cache['type'],
+                    'options' => array(
+                        'cache_dir' => realpath($cache['path']),
+                        'ttl' => 1
+                    ),
                 ),
-            ),
-            'plugins' => array(
-                'exception_handler' => array(
-                    'throw_exceptions' => true
-                )
-            ),
-        ));
+                'plugins' => array(
+                    'exception_handler' => array(
+                        'throw_exceptions' => true
+                    )
+                ),
+            )
+        );
         return $cacheStorage;
     }
 

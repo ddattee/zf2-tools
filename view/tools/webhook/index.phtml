@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="jumbotron">
+            <h3>Mise a jour git</h3>
+
+            <p>Cet outils permet de mettre à jour les sources du site</p>
+
+            <p>Git doit être installé sur le serveur pour que cette outils fonctionne et l'utilisateur apache doit avoir les autorisation pour effectuer un git-pull.</p>
+            <button class="btn btn-primary" onclick="runUpdate()">Lancer la mise à jour</button>
+        </div>
+        <script type="text/javascript">
+            var runUpdate = function () {
+                $.ajax({
+                    "url": '<?php echo $this->url('tools', array('controller' => 'webhook', 'action' => 'update')); ?>',
+                    "dataType": 'html',
+                    "beforeSend": function(){
+                        $('div.result').html('');
+                        $('.wait').removeClass('hide');
+                    },
+                    "complete": function(){
+                        $('.wait').addClass('hide');
+                    },
+                    "success": function (response) {
+                        $('div.result').html(response);
+                    }
+                });
+            }
+        </script>
+        <div class="text-center">
+                <span class="wait fa fa-cog fa-spin fa-5x hide">
+        </div>
+        <div class="result">
+        </div>
+    </div>
+</div>

@@ -3,10 +3,10 @@
 return array(
     'controllers' => array(
         'invokables' => array(
-            'Tools\Controller\Index' => 'Tools\Controller\IndexController',
-            'Tools\Controller\Utils' => 'Tools\Controller\UtilsController',
-            'Tools\Controller\Caches' => 'Tools\Controller\CachesController',
-            'Tools\Controller\Git' => 'Tools\Controller\GitController',
+            'Tools\Controller\Index'   => 'Tools\Controller\IndexController',
+            'Tools\Controller\Utils'   => 'Tools\Controller\UtilsController',
+            'Tools\Controller\Caches'  => 'Tools\Controller\CachesController',
+            'Tools\Controller\Webhook' => 'Tools\Controller\WebhookController',
         ),
     ),
     'router' => array(
