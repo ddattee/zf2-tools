@@ -36,13 +36,13 @@ return array(
             'tools' => __DIR__ . '/../view',
         ),
     ),
-    'cache_manager' => array(
-        'caches' => array(),
-    ),
     'tools' => array(
         'ips' => array(),
         'exclude_ip_control' => array(
             '/tools/webhook/update'
+        ),
+        'cache_manager' => array(
+            'caches' => array(),
         ),
         'webhook' => array(
             'token' => ''
