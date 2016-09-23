@@ -10,6 +10,8 @@ namespace Tools\Controller;
 
 use General\Utils\Git;
 use Vendors\Getext;
+use Zend\Http\Headers;
+use Zend\Http\Request;
 use Zend\View\Model\ViewModel;
 
 /**
@@ -19,6 +21,7 @@ use Zend\View\Model\ViewModel;
  */
 class WebhookController extends AbstractController
 {
+    const GITLAB_HEADER_TOKEN = 'X-Gitlab-Token';
 
     /**
      * Index action
@@ -40,6 +43,12 @@ class WebhookController extends AbstractController
         $gitService = new Git();
         $output = '';
         $errors = '';
+
+        if (!$this->isValidGitlabToken()) {
+            $this->getResponse()->setStatusCode(404);
+            return;
+        }
+
         $code = $gitService->pull($output, $errors);
         $viewModel = new ViewModel();
         $viewModel
@@ -52,6 +61,20 @@ class WebhookController extends AbstractController
             )
             ->setTerminal(true);
         return $viewModel;
+    }
+
+    /**
+     * Control Gitlab webhook token
+     *
+     * @return bool
+     */
+    protected function isValidGitlabToken()
+    {
+        /** @var Request $request */
+        $request = $this->getRequest();
+        $configToken = (string) $this->getServiceLocator()->get('config')['webhook']['token'];
+        return (bool) (!$this->getRequest()->getHeaders()->has(self::GITLAB_HEADER_TOKEN)
+            || $request->getHeader(self::GITLAB_HEADER_TOKEN) === $configToken);
     }
 
 }
