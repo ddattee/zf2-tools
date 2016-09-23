@@ -40,7 +40,7 @@ class WebhookController extends AbstractController
      */
     public function updateAction()
     {
-        $gitService = new Git();
+        $git = new Git();
         $output = '';
         $errors = '';
 
@@ -49,7 +49,7 @@ class WebhookController extends AbstractController
             return;
         }
 
-        $code = $gitService->pull($output, $errors);
+        $code = $git->pull($output, $errors);
         $viewModel = new ViewModel();
         $viewModel
             ->setVariables(
