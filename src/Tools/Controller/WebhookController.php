@@ -72,7 +72,7 @@ class WebhookController extends AbstractController
     {
         /** @var Request $request */
         $request = $this->getRequest();
-        $configToken = (string) $this->getServiceLocator()->get('config')['webhook']['token'];
+        $configToken = (string) $this->getServiceLocator()->get('config')['tools']['webhook']['token'];
         return (bool) (!$this->getRequest()->getHeaders()->has(self::GITLAB_HEADER_TOKEN)
             || $request->getHeader(self::GITLAB_HEADER_TOKEN) === $configToken);
     }
