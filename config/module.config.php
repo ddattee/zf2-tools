@@ -40,6 +40,9 @@ return array(
         'caches' => array(),
     ),
     'tools' => array(
-        'ips' => array()
+        'ips' => array(),
+        'webhook' => array(
+            'token' => ''
+        )
     )
 );
