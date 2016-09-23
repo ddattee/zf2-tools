@@ -41,6 +41,9 @@ return array(
     ),
     'tools' => array(
         'ips' => array(),
+        'exclude_ip_control' => array(
+            '/tools/webhook/update'
+        ),
         'webhook' => array(
             'token' => ''
         )
