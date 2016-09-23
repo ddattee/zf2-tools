@@ -112,7 +112,7 @@ class UtilsController extends AbstractController
     {
         $toconvert = array();
         $config = $this->getServiceLocator()->get('config');
-        foreach ($config['translator']['translation_file_patterns'] as $translator) {
+        foreach ($config['tools']['translator']['translation_file_patterns'] as $translator) {
             if ($translator['type'] == 'gettext') {
                 if (isset($translator['base_dir'])) {
                     $toconvert[] = $translator['base_dir'];

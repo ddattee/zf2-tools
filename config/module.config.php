@@ -46,6 +46,9 @@ return array(
         ),
         'webhook' => array(
             'token' => ''
+        ),
+        'translator' => array(
+            'translation_file_patterns' => array()
         )
     )
 );
