@@ -64,7 +64,7 @@ class WebhookController extends AbstractController
     }
 
     /**
-     * Control Gitlab webhook token
+     * Control Gitlab webhook token if header is sent
      *
      * @return bool
      */
@@ -73,8 +73,8 @@ class WebhookController extends AbstractController
         /** @var Request $request */
         $request = $this->getRequest();
         $configToken = (string) $this->getServiceLocator()->get('config')['tools']['webhook']['token'];
-        return (bool) (!$this->getRequest()->getHeaders()->has(self::GITLAB_HEADER_TOKEN)
-            || $request->getHeader(self::GITLAB_HEADER_TOKEN) === $configToken);
+        return (bool) (!$request->getHeaders()->has(self::GITLAB_HEADER_TOKEN)
+            || $request->getHeader(self::GITLAB_HEADER_TOKEN)->getFieldValue() === $configToken);
     }
 
 }
