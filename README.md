@@ -7,7 +7,7 @@ These tools include some functionnality for :
 - [cache cleaning](doc/cache.md)
 - [composer update](doc/composer.md)
 - [.mo translation file generation](doc/translation.md)
-- [gitlab webhook for auto update the application](doc/webhook.md)
+- [webhook for auto update the application](doc/webhook.md)
 
 For each functionnality that interest you please see requirement on each doc before trying to use those tools
 
