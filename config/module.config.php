@@ -1,51 +1,60 @@
 <?php
 
-return array(
-    'controllers' => array(
-        'invokables' => array(
+return [
+    'controllers' => [
+        'invokables' => [
             'Tools\Controller\Index'   => 'Tools\Controller\IndexController',
             'Tools\Controller\Utils'   => 'Tools\Controller\UtilsController',
             'Tools\Controller\Caches'  => 'Tools\Controller\CachesController',
             'Tools\Controller\Webhook' => 'Tools\Controller\WebhookController',
-        ),
-    ),
-    'router' => array(
-        'routes' => array(
-            'tools' => array(
+        ],
+    ],
+    'router' => [
+        'routes' => [
+            'tools' => [
                 'type' => 'Segment',
-                'options' => array(
+                'options' => [
                     'route' => '/tools/[:controller[/:action]]',
-                    'defaults' => array(
+                    'defaults' => [
                         '__NAMESPACE__' => 'Tools\Controller',
                         'controller' => 'Index',
                         'action' => 'index',
-                    ),
-                    'constraints' => array(
+                    ],
+                    'constraints' => [
                         'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*'
-                    ),
-                )
-            )
-        )
-    ),
-    'module_layouts' => array(
+                    ],
+                ],
+            ],
+        ],
+    ],
+    'module_layouts' => [
         'Tools' => 'layout/clean.phtml'
-    ),
-    'view_manager' => array(
-        'template_path_stack' => array(
+    ],
+    'view_manager' => [
+        'template_path_stack' => [
             'tools' => __DIR__ . '/../view',
-        ),
-    ),
-    'cache_manager' => array(
-        'caches' => array(),
-    ),
-    'tools' => array(
-        'ips' => array(),
-        'exclude_ip_control' => array(
+        ],
+    ],
+    'tools' => [
+        'ips' => [],
+        'exclude_ip_control' => [
             '/tools/webhook/update'
-        ),
-        'webhook' => array(
+        ],
+        'cache_manager' => [
+            'caches' => [],
+        ],
+        'webhook' => [
+            'git'   => [
+                'remoteName' => [
+                    'name'   => 'origin',
+                    'branch' => 'master'
+                ],
+                'local' => [
+                    'branch' => 'master',
+                ],
+            ],
             'token' => ''
-        )
-    )
-);
+        ],
+    ],
+];

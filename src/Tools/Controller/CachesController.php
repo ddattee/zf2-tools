@@ -20,13 +20,13 @@ class CachesController extends AbstractController
     {
         $config = $this->getServiceLocator()->get('config');
         return array(
-            'caches' => $config['cache_manager']['caches']
+            'caches' => $config['tools']['cache_manager']['caches']
         );
     }
 
     public function emptyAction()
     {
-        $caches = $this->getServiceLocator()->get('config')['cache_manager']['caches'];
+        $caches = $this->getServiceLocator()->get('config')['tools']['cache_manager']['caches'];
         $empty = false;
         $msg = '';
         if ($this->getRequest()->isPost()) {
@@ -62,7 +62,7 @@ class CachesController extends AbstractController
 
     public function cleanAction()
     {
-        $caches = $this->getServiceLocator()->get('config')['cache_manager']['caches'];
+        $caches = $this->getServiceLocator()->get('config')['tools']['cache_manager']['caches'];
         $indexCache = (int) $this->getRequest()->getparam('id', null);
         $clean = false;
 
