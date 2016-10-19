@@ -50,7 +50,7 @@ class WebhookController extends AbstractController
         }
 
         $git = new Git();
-        $code = $git->pull($config['remote']['name'], $config['remote']['branch'], $config['locals']['branch'], $output, $errors);
+        $code = $git->pull($config['remote']['name'], $config['remote']['branch'], $config['local']['branch'], $output, $errors);
         $viewModel = new ViewModel();
         $viewModel
             ->setVariables(

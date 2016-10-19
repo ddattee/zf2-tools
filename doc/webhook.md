@@ -13,7 +13,7 @@ Otherwise you need to install this library.
 Configuration
 -------------
 
-To be able to work the webhook need to be able ro tun the `git pull` command in your project dir.
+To be able to work the webhook need to be able ro tun the `git pull` command in your project dir with webserver user.
 To do that update the rights on your project like this :
 ```bash
 # Go into you projects root where .git dir is located
