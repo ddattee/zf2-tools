@@ -1,6 +1,12 @@
 <?php
 /**
- * Tools Module déclaration
+ * Tools module
+ *
+ * @category  Tools
+ * @package   Tools
+ * @author    David Dattée <david.dattee@gmail.com>
+ * @copyright 2016 David Dattée
+ * @license   MIT License (MIT)
  */
 
 namespace Tools;
