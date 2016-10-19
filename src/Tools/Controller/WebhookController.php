@@ -40,6 +40,7 @@ class WebhookController extends AbstractController
      */
     public function updateAction()
     {
+        $config = $caches = $this->getServiceLocator()->get('config')['tools']['webhook']['git'];
         $output = '';
         $errors = '';
 
@@ -49,7 +50,7 @@ class WebhookController extends AbstractController
         }
 
         $git = new Git();
-        $code = $git->pull($output, $errors);
+        $code = $git->pull($config['remote']['name'], $config['remote']['branch'], $config['locals']['branch'], $output, $errors);
         $viewModel = new ViewModel();
         $viewModel
             ->setVariables(
