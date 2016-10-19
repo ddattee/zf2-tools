@@ -39,4 +39,4 @@ For this refer to the tools documentation you want to configure at the beginning
 Roadmap
 -------
 
-- [] detect if requirements are met before displaying any tool
+[] detect if requirements are met before displaying any tool
