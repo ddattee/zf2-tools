@@ -1,4 +1,7 @@
 <?php
+/**
+ * Tools Module déclaration
+ */
 
 namespace Tools;
 
@@ -28,7 +31,7 @@ class Module implements
     {
         $app = $e->getApplication();
         $em = $app->getEventManager();
-//		$sm  = $app->getServiceManager();
+//        $sm  = $app->getServiceManager();
 
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($em);
