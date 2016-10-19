@@ -2,6 +2,7 @@ Cache Manager
 =============
 
 The cache manager allow you to rapidly clean application cache storage.
+
 Currently the tools only support filesystem cache cleaning.
 
 Dependencies
@@ -10,6 +11,7 @@ Dependencies
 This tool need `ddattee/libs` to work. 
 
 If you install the tools via composer the dependecy has been resolved and installed.
+
 Otherwise you need to install this library via composer.
 
 Configuration

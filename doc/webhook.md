@@ -2,12 +2,14 @@ Webhook
 =======
 
 The webhook allow you application to self update by running a `git pull` via a http request.
+
 To work the project has to be a working git repository (meaning it has to have a .git folder at the root of your project).
 
 Dependencies
 ------------
 
 This tool need `ddattee/libs` if you install the tools via composer the dependecy has been solved and install.
+
 Otherwise you need to install this library.
 
 System Requirement
@@ -16,6 +18,7 @@ System Requirement
 We will assume that you have git installed and that you're project is already a git working repository.
 
 To be able to work the webhook need to be able ro tun the `git pull` command in your project dir with webserver user.
+
 For that you need two things :
 
  1. Allow webserver user to contact remote server that contain the repo
@@ -41,6 +44,7 @@ Configuration
 ### Branch
 
 By default the Webhook wil try to pull with default git configuration, meaning it will try to do `git pull origin master:master`.
+
 If you need you can specify which remote/branches you'd like the webhook to update, for this simply add this configuration into your app `config/autoload/global.php` file.
 ```php
 'tools' => [
