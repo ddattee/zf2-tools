@@ -75,6 +75,11 @@ In order to use gitlab webhook token security system you can declare it to your 
 ```
 The webhook will then look for gitlab header and if it founds it will verify that the sent token corespond to the one you configured.
 
+Usage
+-----
+
+You can call the webhook from any browser by going to this address : http(s)//YOURDOMAIN/tools/webhook/update
+It is also this URL that you must provide to Gitlab when configuring the webhook on gilatb's side.
+
 Roadmap
 -------
-

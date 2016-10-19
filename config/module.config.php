@@ -44,6 +44,14 @@ return [
         'cache_manager' => [
             'caches' => [],
         ],
+        'translator' => [
+            'translation_file_patterns' => [
+                [
+                    'type'     => 'gettext',
+                    'base_dir' => 'PATH/TO/YOUR/PO/FILES'
+                ]
+            ],
+        ],
         'webhook' => [
             'git'   => [
                 'remote' => [

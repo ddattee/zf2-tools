@@ -111,7 +111,7 @@ class UtilsController extends AbstractController
     private function loadTranslationStorage()
     {
         $toconvert = array();
-        $config = $this->getServiceLocator()->get('config');
+        $config = $this->getServiceLocator()->get('config')['tools'];
         foreach ($config['translator']['translation_file_patterns'] as $translator) {
             if ($translator['type'] == 'gettext') {
                 if (isset($translator['base_dir'])) {
