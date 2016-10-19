@@ -46,7 +46,7 @@ return [
         ],
         'webhook' => [
             'git'   => [
-                'remoteName' => [
+                'remote' => [
                     'name'   => 'origin',
                     'branch' => 'master'
                 ],
