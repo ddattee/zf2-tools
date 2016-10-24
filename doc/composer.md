@@ -20,7 +20,7 @@ You can revoke those rights after running the composer update
 Roadmap
 -------
 
-- [] transfert composer logic in a ddattee/libs class
-- [] download new composer.phar if nothing executable found
-- [] allow to ask for one package to be updated
+- [ ] transfert composer logic in a ddattee/libs class
+- [ ] download new composer.phar if nothing executable found
+- [ ] allow to ask for one package to be updated
 
