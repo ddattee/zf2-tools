@@ -9,7 +9,7 @@
   "license": "Apache 2.0",
   "require": {
     "php": ">=5.5",
-    "ddattee/libs": "dev-master",
+    "ddattee/libs": "1.0.1",
     "neilime/zf2-assets-bundle": "3.*@stable"
   },
   "authors": [
@@ -38,7 +38,8 @@
   ],
   "extra": {
     "branch-alias": {
-      "dev-master": "1.x-dev"
+      "dev-master": "1.x-dev",
+      "1.0.1": "1.0.1"
     }
   }
 }
