@@ -39,5 +39,5 @@ As of now the cache manager only allow to wipe out the cache storage.
 Roadmap
 -------
 
-- [] add tag cleaning
-- [] add refresh cache
+- [ ] add tag cleaning
+- [ ] add refresh cache
