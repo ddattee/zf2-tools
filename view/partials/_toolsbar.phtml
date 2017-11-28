@@ -1,3 +1,14 @@
+<?php
+/**
+ * toolbar partial
+ *
+ * @category  view
+ * @package   view\partials
+ * @author    David Dattée <david.dattee@gmail.com>
+ * @copyright 2016 David Dattée
+ * @license   MIT License (MIT)
+ */
+?>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -9,7 +20,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?php echo $this->url('tools'); ?>">Machinerie</a>
+            <a class="navbar-brand" href="<?php echo $this->url('tools'); ?>">Machinery</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -17,7 +28,7 @@
             <ul class="nav navbar-nav">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">Outils <span class="caret"></span></a>
+                       aria-expanded="false">Tools <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="<?php echo $this->url('tools', array('controller' => 'utils', 'action' => 'composer')); ?>">Composer</a>

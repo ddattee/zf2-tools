@@ -1,4 +1,13 @@
 <?php
+/**
+ * Tools module
+ *
+ * @category  Tools
+ * @package   Tools
+ * @author    David Dattée <david.dattee@gmail.com>
+ * @copyright 2016 David Dattée
+ * @license   MIT License (MIT)
+ */
 
 namespace Tools;
 
@@ -28,7 +37,7 @@ class Module implements
     {
         $app = $e->getApplication();
         $em = $app->getEventManager();
-//		$sm  = $app->getServiceManager();
+//        $sm  = $app->getServiceManager();
 
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($em);
@@ -80,7 +89,7 @@ class Module implements
             //Symlink current module assets to public
             $public_assets .= '/' . basename(realpath(__DIR__ . '/../..'));
             $module_assets = realpath(__DIR__ . '/../../resources');
-            if(is_dir($module_assets) && !file_exists($public_assets)) {
+            if(is_dir($module_assets) && !is_file($public_assets) && is_writable(PUBLIC_PATH . '/modules')) {
                 `ln -s $module_assets $public_assets`;
             }
         }

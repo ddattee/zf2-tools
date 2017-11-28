@@ -1,9 +1,12 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: ddattee
- * Date: 29/06/2015
- * Time: 17:29
+ * Webhook controller
+ *
+ * @category  Tools
+ * @package   Tools\Controller
+ * @author    David Dattée <david.dattee@gmail.com>
+ * @copyright 2016 David Dattée
+ * @license   MIT License (MIT)
  */
 
 namespace Tools\Controller;
@@ -40,6 +43,7 @@ class WebhookController extends AbstractController
      */
     public function updateAction()
     {
+        $config = $caches = $this->getServiceLocator()->get('config')['tools']['webhook']['git'];
         $output = '';
         $errors = '';
 
@@ -48,13 +52,17 @@ class WebhookController extends AbstractController
             return;
         }
 
-        $git = new Git();
-        $code = $git->pull($output, $errors);
+        $git       = new Git();
+        $fetch     = $git->fetch($config['remote']['name'], $config['remote']['branch'], $config['local']['branch'], $output, $errors);
+        $reset     = $git->reset(true, $output, $errors);
+        $code      = $git->pull($config['remote']['name'], $config['remote']['branch'], $config['local']['branch'], $output, $errors);
         $viewModel = new ViewModel();
         $viewModel
             ->setVariables(
                 [
                     'code'   => $code,
+                    'reset'  => $reset,
+                    'fetch'  => $fetch,
                     'output' => $output,
                     'errors' => $errors,
                 ]
@@ -64,7 +72,7 @@ class WebhookController extends AbstractController
     }
 
     /**
-     * Control Gitlab webhook token
+     * Control Gitlab webhook token if header is sent
      *
      * @return bool
      */
@@ -73,8 +81,8 @@ class WebhookController extends AbstractController
         /** @var Request $request */
         $request = $this->getRequest();
         $configToken = (string) $this->getServiceLocator()->get('config')['tools']['webhook']['token'];
-        return (bool) (!$this->getRequest()->getHeaders()->has(self::GITLAB_HEADER_TOKEN)
-            || $request->getHeader(self::GITLAB_HEADER_TOKEN) === $configToken);
+        return (bool) (!$request->getHeaders()->has(self::GITLAB_HEADER_TOKEN)
+            || $request->getHeader(self::GITLAB_HEADER_TOKEN)->getFieldValue() === $configToken);
     }
 
 }

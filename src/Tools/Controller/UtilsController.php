@@ -1,9 +1,12 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: ddattee
- * Date: 29/06/2015
- * Time: 17:29
+ * Utils controller
+ *
+ * @category  Tools
+ * @package   Tools\Controller
+ * @author    David Dattée <david.dattee@gmail.com>
+ * @copyright 2016 David Dattée
+ * @license   MIT License (MIT)
  */
 
 namespace Tools\Controller;
@@ -111,8 +114,8 @@ class UtilsController extends AbstractController
     private function loadTranslationStorage()
     {
         $toconvert = array();
-        $config = $this->getServiceLocator()->get('config');
-        foreach ($config['tools']['translator']['translation_file_patterns'] as $translator) {
+        $config = $this->getServiceLocator()->get('config')['tools'];
+        foreach ($config['translator']['translation_file_patterns'] as $translator) {
             if ($translator['type'] == 'gettext') {
                 if (isset($translator['base_dir'])) {
                     $toconvert[] = $translator['base_dir'];
