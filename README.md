@@ -5,10 +5,10 @@ This tools are intended to help ZF2 site administrator to handle some core task 
 
 These tools include some functionnality for :
 
-- [cache cleaning](doc/cache.md)
-- [composer update](doc/composer.md)
-- [.mo translation file generation](doc/translation.md)
-- [webhook for auto update the application](doc/webhook.md)
+- [cache cleaning](./docs/cache.md)
+- [composer update](./docs/composer.md)
+- [.mo translation file generation](./docs/translation.md)
+- [webhook for auto update the application](./docs/webhook.md)
 
 For each functionnality that interest you please see requirement on each doc before trying to use those tools
 
