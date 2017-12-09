@@ -1,3 +1,6 @@
+[![build status](https://git.ddattee.fr/ddattee/tools/badges/master/build.svg)](https://git.ddattee.fr/ddattee/tools/commits/master)
+[![Dependency Status](https://gemnasium.com/badges/github.com/ddattee/zf2-tools.svg)](https://gemnasium.com/github.com/ddattee/zf2-tools)
+
 ZF2 Tools
 =========
 
