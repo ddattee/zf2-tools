@@ -30,10 +30,6 @@
     {
       "type": "composer",
       "url": "https://packages.zendframework.com/"
-    },
-    {
-      "type": "composer",
-      "url": "https://share.ddattee.fr/"
     }
   ],
   "extra": {
