@@ -89,7 +89,7 @@ class Module implements
             //Symlink current module assets to public
             $public_assets .= '/' . basename(realpath(__DIR__ . '/../..'));
             $module_assets = realpath(__DIR__ . '/../../resources');
-            if(is_dir($module_assets) && !is_file($public_assets) && is_writable(PUBLIC_PATH . '/modules')) {
+            if(is_dir($module_assets) && !is_link($public_assets) && is_writable(PUBLIC_PATH . '/modules')) {
                 `ln -s $module_assets $public_assets`;
             }
         }
