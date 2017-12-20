@@ -4,19 +4,25 @@ cache:
   
 before_script:
 - bash ci/docker_install.sh > /dev/null
-- composer install --dev
+- bin/composer install --dev
+
+stages:
+- test
 
 phpunit:php5.6:
+  stage: test
   image: php:5.6
   script:
   - vendor/bin/phpunit --configuration phpunit.xml --colors=never --coverage-text
     
 phpunit:php7.0:
+  stage: test
   image: php:7.0
   script:
   - vendor/bin/phpunit --configuration phpunit.xml --colors=never --coverage-text
 
 phpunit:php7.1:
+  stage: test
   image: php:7.1
   script:
   - vendor/bin/phpunit --configuration phpunit.xml --colors=never --coverage-text
