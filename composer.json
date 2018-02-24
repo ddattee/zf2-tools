@@ -6,7 +6,7 @@
     "zf2"
   ],
   "homepage": "http://www.ddattee.fr/",
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
   "require": {
     "php": ">=5.5",
     "ddattee/libs": "1.0.1",
